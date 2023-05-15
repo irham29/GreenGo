@@ -1,0 +1,109 @@
+body {
+  background-color: rgba(243, 229, 225, 1);
+}
+
+a {
+  text-decoration: none; /* menghilangkan garis bawah */
+  color: #333; /* mengubah warna teks tautan */
+}
+
+#login {
+  height: 100vh;
+  background-image: url(/images/bg2.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  #login {
+    height: 100vh;
+    background-image: none;
+  }
+}
+
+/* Warna Modal */
+.modalColor{
+    baground-color: rgb(225, 207, 202);
+    color: rgb(67, 58, 58);
+}
+.modalColor1{
+   background-color: rgb(162, 142, 137);
+   color: white;
+}
+/* End warna modal */
+
+/* Login */
+
+.field {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.field:nth-child(2) {
+  margin-top: 20px;
+}
+
+.field .input {
+  height: 100%;
+  width: 100%;
+  padding-left: 45px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background: #dde1e7;
+  color: #595959;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff73;
+}
+
+.field .input:focus {
+  box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #ffffff73;
+}
+
+.field .span {
+  position: absolute;
+  color: #595959;
+  width: 50px;
+  line-height: 55px;
+}
+
+.field .label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 45px;
+  pointer-events: none;
+  color: #666666;
+}
+
+.field .input:valid ~ label {
+  opacity: 0;
+}
+
+.forgot-pass {
+  text-align: left;
+  margin: 10px 0 10px 5px;
+}
+
+.button {
+  margin: 15px 0;
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #595959;
+  border-bottom: 1.5px solid #535151;
+}
+
+.button:focus {
+  padding-top: 5px;
+}
+
+/* End Login */

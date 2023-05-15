@@ -1,0 +1,71 @@
+<div class="col-md-8">
+  <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-md-11 header-donasi">
+        <h3 class="text-center pt-3">BERIKAN DONASIMU SEKARANG</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row justify-content-center">
+          <div class="col-3">
+            <img src="/images/icon6.png" alt="img" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <form action="/storeDonation" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="user" value="<%=session.user._id%>">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="mb-3">
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Barang" required />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="mb-3">
+                <input type="text" name="description" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Deskripsil barang" required />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="mb-3">
+                <select class="form-select" name="condition" aria-label="Default select example" required>
+                  <option hidden>Kualitas Barang</option>
+                  <option value="Baik">Kondisi Barang Baik</option>
+                  <option value="Layak Pakai">Kondisi Barang Layak Pakai</option>
+                  <option value="Kurang Baik">Kondisi Barang Kurang Baik</option>
+                  <option value="Buruk">Kondisi Barang Buruk</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="mb-3">
+                <input class="form-control" type="file" name="image" id="formFile" required />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="mb-3">
+                <textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukkan Alamat" required></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-primary">Donasi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

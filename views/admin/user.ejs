@@ -1,0 +1,120 @@
+<div class="col-md-8">
+  <div class="row">
+    <div class="col-md-12 title-pesan">
+      <p>USER</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <p>Show</p>
+      <form action="">
+        <div class="mb-3">
+          <input type="number" class="form-control" id="exampleFormControlInput1" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-11">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Username</th>
+            <th scope="col">Level</th>
+            <th scope="col" class="text-center">Opsi</th>
+          </tr>
+        </thead>
+        <tbody>
+  <% users.forEach((user, index) => { %>
+          <tr>
+            <th scope="row"><%= index+1 %></th>
+            <td><%= user.username %></td>
+            <td><%= user.level %></td>
+            <td class="text-center">
+              <span type="button" class="badge text-bg-primary px-3" data-bs-toggle="modal" data-bs-target="#exampleModal<%= user._id %>">
+                Edit
+              </span>
+              <span type="button" class="badge text-bg-danger px-2" data-bs-toggle="modal" data-bs-target="#DeleteModal<%= user._id %>">
+                Hapus
+              </span>
+            </td>
+          </tr>
+          <!-- modal edit -->
+          <div class="modal fade" id="exampleModal<%= user._id %>" tabindex="-1" aria-labelledby="exampleModal<%= user._id %>Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content" style="background-color: rgba(227, 206, 200, 1);">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel<%= user._id %>">Edit User</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">
+                  <form action="/admin/user/edit/<%= user._id %>" method="POST">
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text" class="form-control" id="username" name="username" value="<%= user.username %>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="level">Level</label>
+                      <select class="form-control" id="level" name="level" required>
+                        <option value="User" <%= user.level === 'User' ? 'selected' : '' %>>User</option>
+                        <option value="Admin" <%= user.level === 'Admin' ? 'selected' : '' %>>Admin</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn my-3 w-100" style="background-color: rgb(181, 157, 150)">Edit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal delete -->
+          <div class="modal fade" id="DeleteModal<%= user._id %>" tabindex="-1" aria-labelledby="DeleteModalLabel<%= user._id %>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content" style="background-color: rgba(227, 206, 200, 1);">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="DeleteModalLabel<%= user._id %>">Konfirmasi Hapus</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Yakin Ingin Menghapus <%= user.name %>?
+                </div>
+                <div class="modal-footer">
+                  <form action="/admin/user/delete/<%= user._id %>" method="post">
+                    <button type="submit" class="btn text-dark" style="background-color: rgb(181, 157, 150)">Hapus</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+  <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-md-4">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

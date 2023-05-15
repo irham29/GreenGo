@@ -1,0 +1,183 @@
+<!-- admin -->
+<% if (session && session.user && session.user.level == 'Admin') { %>
+<div class="col-md-4 t-card">
+  <div class="row card h-100 ms-1">
+    <div class="col-md-12 h-100">
+      <div class="row card-header profile">
+        <div class="col-md-3 text-center kategori">
+          <img
+            src="/images/user.jpg"
+            alt="img"
+            class="img-fluid rounded-circle"
+          />
+          <p>Admin</p>
+        </div>
+        <div class="col-md-8 align-self-center name-user">
+          <p class="fw-bold"><%=session.user.username%></p>
+        </div>
+      </div>
+      <div class="row element card-body mb-auto">
+        <div class="col-md-12 card-f">
+          <a href="/admin/dashboard">
+            <p>
+              <img
+                src="/images/icon1.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              Dahsboard
+            </p>
+          </a>
+        </div>
+        <div class="col-md-12 card-f">
+          <a href="/admin/history">
+            <p>
+              <img
+                src="/images/icon4.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              History
+            </p>
+          </a>
+        </div>
+        <div class="col-md-12 card-f">
+          <a href="/admin/user">
+            <p>
+              <img
+                src="/images/icon7.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              User
+            </p>
+          </a>
+        </div>
+        <div class="col-md-12 card-f">
+          <a href="/admin/confirm">
+            <p>
+              <img
+                src="/images/icon8.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              Konfirmasi
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="row card-footer">
+        <div class="col-md-12">
+          <a href="/logout">
+            <p>
+              <img
+                src="/images/icon5.png"
+                alt="icon"
+                height="22px"
+                class="me-3"
+              />
+              Logout
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
+
+<!-- user -->
+<% if (session && session.user && session.user.level == 'User') { %>
+<div class="col-md-4 t-card">
+  <div class="row card h-100 ms-1">
+    <div class="col-md-12 h-100">
+      <a href="/profile" class="row card-header profile">
+        <div class="col-md-3 text-center kategori">
+          <img
+            src="/images/user.jpg"
+            alt="img"
+            class="img-fluid rounded-circle"
+          />
+          <p>User</p>
+        </div>
+        <div class="col-md-8 align-self-center name-user">
+          <p class="fw-bold"><%=session.user.username%></p>
+        </div>
+      </a>
+      <div class="row element card-body mb-auto">
+        <div class="col-md-12 card-f">
+          <a href="/dashboard">
+            <p>
+              <img
+                src="/images/icon1.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              Dahsboard
+            </p>
+          </a>
+        </div>
+        <div class="col-md-12 card-f">
+          <a href="/donate">
+            <p>
+              <img
+                src="/images/icon2.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              Berikan Donasi
+            </p>
+          </a>
+        </div>
+        <div class="col-md-12 card-f">
+          <a href="/message">
+            <p>
+              <img
+                src="/images/icon3.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              Pesan
+            </p>
+          </a>
+        </div>
+        <div class="col-md-12 card-f">
+          <a href="/history">
+            <p>
+              <img
+                src="/images/icon4.png"
+                alt="icon"
+                height="30px"
+                class="me-3"
+              />
+              Riwayat
+            </p>
+          </a>
+        </div>
+      </div>
+      <div class="row card-footer">
+        <div class="col-md-12">
+          <a href="/logout">
+            <p>
+              <img
+                src="/images/icon5.png"
+                alt="icon"
+                height="22px"
+                class="me-3"
+              />
+              Logout
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>

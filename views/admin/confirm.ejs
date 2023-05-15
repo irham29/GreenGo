@@ -1,0 +1,44 @@
+<div class="col-md-8">
+  <div class="row justify-content-end">
+    <h3><img src="/images/icon8.png" alt="img" class="img-fluid"> KOMFIRMASI</h3>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <% donations.forEach((donation, i) => { %>
+          <div class="col-md-6 my-3">
+              <div class="card-produk">
+                <div class="container-fluid">
+                  <div class="row py-3">
+                    <div class="col-5 align-self-center">
+                      <img src="/images/donations/<%=donation.image%>" alt="img" class="img-fluid" />
+                    </div>
+                    <div class="col-7">
+                      <p class="tp1"><%= donation.name %></p>
+                      <p class="tp2"><%= donation.condition %></p>
+                      <p class="tp3"><i class="bi bi-pin-fill"></i> <%= donation.address %></p>
+                    </div>
+                  </div>
+                  <div class="row pb-3">
+                    <div class="col-md-6 text-end">
+                      <form action="/admin/donation/<%= donation._id %>/accept" method="POST">
+                        <!-- <button type="submit" class="btn btn-success">Accept</button> -->
+                        <button type="submit" class="btn px-3">Terima</button>
+                      </form>
+                    </div>
+                    <div class="col-md-6">
+                      <form action="/admin/donation/<%= donation._id %>/reject" method="POST">
+                        <!-- <button type="submit" class="btn btn-danger">Reject</button> -->
+                        <button type="submit" class="btn px-4">Tolak</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        <% }) %>
+
+      </div>
+    </div>
+  </div>
+</div>

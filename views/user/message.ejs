@@ -1,0 +1,68 @@
+<div class="col-md-8">
+  <div class="row">
+    <div class="col-md-12 title-pesan">
+      <p>PESAN</p>
+    </div>
+    <div class="col-md-12 title-pesan2">
+      <p><i class="bi bi-chat-left-text"></i> Pesan Masuk</p>
+    </div>
+  </div>
+  <!-- loop here -->
+  <% let prevSender = null; %>
+  <% let prevDonation = null; %>
+  <% messages.forEach((message, index) => { %>
+    <% if (message.sender !== prevSender || message.donation !== prevDonation) { %>
+    <a href="" data-bs-toggle="modal" data-bs-target="#messageModal">
+      <div class="row m-2">
+        <div class="col-md-12 card py-3">
+          <div class="row">
+            <div class="col-1">
+              <img src="/images/donations/<%= message.donation.image %>" alt="img" class="img-fluid rounded-circle" />
+            </div>
+            <div class="col-8">
+              <p class="pesan-header"><%=message.donation.name%></p>
+            </div>
+            <% messages.forEach((m, index) => { %>
+              <% if (message.donation == m.donation && message.sender == m.sender) { %>
+                <div class="col-12 row">
+                  <div class="col-9">
+                    <%= m.sender.username %> : <%=m.content%>
+                  </div>
+                  <div class="col-3 text-end">
+                    <%= moment(message.createdAt).format('DD-MM-YYYY') %> <%= moment(message.createdAt).format('HH:mm:ss') %>
+                  </div>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </a>
+    
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form action="/messageSend" method="post">
+          <input type="hidden" name="recipient" value="<%= message.sender._id %>">
+          <input type="hidden" name="donation" value="<%= message.donation._id %>">
+          <div class="modal-content">
+            <div class="modal-body py-5 modalColor">
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Balas Pesan</label>
+                <br>
+                <%=message.donation.name%>
+                <textarea class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <div class="row">
+                <button type="submit" class="btn btn-color">Kirim</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <% } %>
+    <% prevSender = message.sender; %>
+    <% prevDonation = message.donation; %>
+  <% }) %>
+  <!-- end loop -->
+</div>

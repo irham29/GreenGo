@@ -1,0 +1,44 @@
+<div class="col-md-8">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Profile</h1>
+    </div>
+    <div class="col-md-12">
+      <div class="card py-2">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <img src="/images/user.jpg" alt="img" class="img-fluid rounded-4" />
+            </div>
+            <div class="col-md-9 align-self-center">
+              <h3><%= user.username %></h3>
+              <h5 class="small"><%= user.email %></h5>
+              <p class="small">User</p>
+              <button class="btn-color rounded-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Ubah Pasword</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form action="/changePassword" method="post">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body py-5 modalColor">
+          <p class="detail">Ubah Kata Sandi</p>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Masukkan Kata sandi baru</label>
+            <input type="password" name="newPassword" class="form-control" id="exampleFormControlInput1" required />
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-color">Ubah</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
